@@ -28,6 +28,7 @@
     shellAliases = {
       vim = "nvim";
       lg = "lazygit";
+      ff = "fastfetch";
     };
   };
 }
