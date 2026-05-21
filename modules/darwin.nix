@@ -4,6 +4,9 @@
     curl
   ];
 
+  # primary user
+  system.primaryUser = "robertmccrary";
+
   system.defaults = {
     dock.autohide = true;
     finder.AppleShowAllExtensions = true;
@@ -14,6 +17,5 @@
     trusted-users = [ "root" "robert" ];
   };
 
-  services.nix-daemon.enable = true;
   system.stateVersion = 5;
 }
