@@ -16,5 +16,12 @@
     userEmail = "rlmccrary1210@gmail.com";
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussel";
+      plugins = [ "git" ];
+    };
+  };
 }
