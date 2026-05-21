@@ -11,7 +11,9 @@
   #homebrew
   homebrew = {
     enable = true;
-    casks = [ ];
+    casks = [
+      "font-meslo-lg-nerd-font"
+    ];
     onActivation = {
       autoUpdate = true;
       cleanup = "none";
