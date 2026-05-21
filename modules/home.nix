@@ -8,6 +8,7 @@
     ripgrep
     fd
     jq
+    ttyper
   ];
 
   home.sessionVariables = {
@@ -35,6 +36,7 @@
       ff = "fastfetch";
       l = "ls -l";
       y = "yazi";
+      tt = "ttyper";
     };
   };
 
@@ -46,6 +48,7 @@
       ff = "fastfetch";
       l = "ls -l";
       y = "yazi";
+      tt = "ttyper";
     };
     extraConfig = ''
       $env.config = {
