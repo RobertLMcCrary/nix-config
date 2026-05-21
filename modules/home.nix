@@ -29,6 +29,7 @@
       vim = "nvim";
       lg = "lazygit";
       ff = "fastfetch";
+      l = "ls -l";
     };
   };
 }
