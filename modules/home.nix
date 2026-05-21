@@ -38,6 +38,45 @@
     };
   };
 
+  programs.nushell = {
+    enable = true;
+    shellAliases = {
+      vim = "nvim";
+      lg = "lazygit";
+      ff = "fastfetch";
+      l = "ls -l";
+      y = "yazi";
+    };
+    extraConfig = ''
+      $env.config = {
+        show_banner: false
+      }
+    '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableNushellIntegration = true;
+    settings = {
+      format = "$username$directory$git_branch$git_status$character";
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
+      directory = {
+        truncation_length = 3;
+        truncate_to_repo = true;
+      };
+      git_branch = {
+        symbol = " ";
+        style = "bold purple";
+      };
+      git_status = {
+        style = "bold red";
+      };
+    };
+  };
+
   programs.fastfetch = {
     enable = true;
     settings = {
@@ -76,6 +115,47 @@
           }
         ];
       };
+    };
+  };
+
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      font-family = "MesloLGS Nerd Font";
+      font-size = 20;
+      font-thicken = true;
+      font-thicken-strength = 0;
+      adjust-cell-height = -2;
+
+      theme = "0x96f";
+      cursor-style = "block";
+      cursor-style-blink = false;
+      cursor-color = "#ffffff";
+      mouse-hide-while-typing = true;
+      term = "xterm-256color";
+
+      shell-integration-features = "no-cursor";
+      scrollback-limit = 10000000;
+      confirm-close-surface = false;
+      window-save-state = "always";
+
+      keybind = [
+        "super+\\=new_split:right"
+        "super+/=new_split:down"
+        "super+j=goto_split:bottom"
+        "super+k=goto_split:top"
+        "super+h=goto_split:left"
+        "super+l=goto_split:right"
+        "super+shift+h=resize_split:left,20"
+        "super+shift+j=resize_split:down,15"
+        "super+shift+k=resize_split:up,15"
+        "super+shift+l=resize_split:right,20"
+        "super+r=reload_config"
+        "super+shift+[=previous_tab"
+        "super+shift+]=next_tab"
+        "super+t=new_tab"
+        "super+w=close_surface"
+      ];
     };
   };
 }
