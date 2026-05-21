@@ -26,7 +26,7 @@
       autohide-delay = 0.0;
       autohide-time-modifier = 0.2;
       show-recents = false;
-      minimize-to-applications = true;
+      minimize-to-application = true;
       orientation = "bottom";
     };
 
