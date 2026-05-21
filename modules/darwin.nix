@@ -12,7 +12,7 @@
   homebrew = {
     enable = true;
     casks = [
-
+      "ghostty"
     ];
     onActivation = {
       autoUpdate = true;
