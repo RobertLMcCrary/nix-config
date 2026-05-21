@@ -51,7 +51,7 @@
       TrackpadRightClick = true;
     };
 
-    screenCapture = {
+    screencapture = {
       location = "~/Pictures";
       type = "png";
     };
