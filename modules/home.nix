@@ -4,11 +4,33 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    go
     ripgrep
     fd
     jq
     ttyper
+
+    #go
+    go
+
+    #js / ts
+    nodejs
+    nodePackages.typescript
+    nodePackages.ts-node
+
+    #rust
+    rustup
+
+    #nix tools
+    nixd
+    nixfmt-rfc-style
+
+    #lua
+    lua
+    lua-rocks
+
+    #general
+    gcc
+    pkg-config
   ];
 
   home.sessionVariables = {
