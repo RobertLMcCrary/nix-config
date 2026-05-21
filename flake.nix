@@ -16,12 +16,14 @@
   outputs = { self, nixpkgs, nix-darwin, home-manager }: {
     darwinConfigurations."Roberts-MBP" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
+
       modules = [
+        ./modules/darwin.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.robert = import ./modules/home.nix;
+          home-manager.users.robertmccrary = import ./modules/home.nix;
         }
       ];
     };
