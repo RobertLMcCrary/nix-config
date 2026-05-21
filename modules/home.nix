@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.username = "robertmccrary";
   home.homeDirectory = "/Users/robertmccrary";
   home.stateVersion = "24.11";
@@ -21,7 +22,7 @@
 
     #nix tools
     nixd
-    nixfmt-rfc-style
+    nixfmt
 
     #lua
     lua
