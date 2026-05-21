@@ -36,7 +36,7 @@
     enable = true;
     settings = {
       logo = {
-        source = "nixos_old";
+        source = "nixos";
       };
       modules = [
         "os"
