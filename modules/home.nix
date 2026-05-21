@@ -15,7 +15,6 @@
     #js / ts
     nodejs
     typescript
-    ts-node
 
     #rust
     rustup
