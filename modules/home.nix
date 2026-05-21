@@ -8,7 +8,7 @@
     ripgrep
     fd
     jq
-    neofetch
+    neowofetch
   ];
 
   programs.git = {
