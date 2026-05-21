@@ -89,7 +89,7 @@
     enableZshIntegration = true;
 
     settings = {
-      font-family = "MesloLGS Nerd Font";
+      font-family = "MesloLGM Nerd Font";
       font-size = 20;
       font-thicken = true;
       font-thicken-strength = 0;
