@@ -2,19 +2,64 @@
   environment.systemPackages = with pkgs; [
     git
     curl
+    lazygit
   ];
 
   # primary user
   system.primaryUser = "robertmccrary";
 
+  #homebrew
+  homebrew = {
+    enable = true;
+    casks = [
+
+    ];
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+    };
+  };
+
   system.defaults = {
-    dock.autohide = true;
-    finder.AppleShowAllExtensions = true;
+    dock = {
+      autohide = true;
+      autohide-delay = 0.0;
+      autohide-time-modifier = 0.2;
+      show-recents = false;
+      minimize-to-applications = true;
+      orientation = "bottom";
+    };
+
+    finder = {
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      ShowPathbar = true;
+      ShowStatusBar = true;
+      FXDefaultSearchScope = "SCcf"; # search current folder by default
+    };
+
+    NSGlobalDomain = {
+      KeyRepeat = 1;
+      InitialKeyRepeat = 10;
+      ApplePressAndHoldEnabled = false;
+    };
+
+    trackpad = {
+      Clicking = true; # tap to click is a w
+      TrackpadThreeFingerDrag = true;
+      TrackpadThreeFingerTapGesture = 2;
+      TrackpadRightClick = true;
+    };
+
+    screenCapture = {
+      location = "~/Pictures";
+      type = "png";
+    };
   };
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "root" "robert" ];
+    trusted-users = [ "root" "robertmccrary" ];
   };
 
   system.stateVersion = 5;
