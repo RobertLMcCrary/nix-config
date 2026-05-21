@@ -12,8 +12,10 @@
 
   programs.git = {
     enable = true;
-    userName = "RobertLMcCrary";
-    userEmail = "rlmccrary1210@gmail.com";
+    settings = {
+      userName = "RobertLMcCrary";
+      userEmail = "rlmccrary1210@gmail.com";
+    };
   };
 
   programs.zsh.enable = true;

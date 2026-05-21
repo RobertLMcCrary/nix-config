@@ -23,6 +23,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.robertmccrary = import ./modules/home.nix;
           home-manager.extraSpecialArgs = { };
           # tell darwin the user exists
