@@ -16,7 +16,7 @@
     ];
     onActivation = {
       autoUpdate = true;
-      cleanup = "zap";
+      cleanup = "none";
     };
   };
 
