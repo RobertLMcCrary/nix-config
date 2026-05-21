@@ -9,7 +9,6 @@
     fd
     jq
     ttyper
-    ghostty
   ];
 
   home.sessionVariables = {
