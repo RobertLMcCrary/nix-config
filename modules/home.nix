@@ -8,7 +8,6 @@
     ripgrep
     fd
     jq
-    fastfetch
   ];
 
   programs.git = {
@@ -31,5 +30,31 @@
       ff = "fastfetch";
       l = "ls -l";
     };
+  };
+
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        source = "nixos";
+      };
+    };
+    modules = [
+      "os"
+      "host"
+      "kernel"
+      "uptime"
+      "shell"
+      "memory"
+      "cpu"
+      "gpu"
+      "disk"
+      "swap"
+      "battery"
+      "localip"
+      "publicip"
+      "separator"
+      "colors"
+    ];
   };
 }
