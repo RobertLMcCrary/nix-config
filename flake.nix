@@ -15,26 +15,32 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager }: {
-    darwinConfigurations."Roberts-MBP" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+    }:
+    {
+      darwinConfigurations."Roberts-MBP" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
 
-      modules = [
-        ./modules/darwin.nix
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
-          home-manager.users.robertmccrary = import ./modules/home.nix;
-          home-manager.extraSpecialArgs = { };
-          # tell darwin the user exists
-          users.users.robertmccrary = {
-            name = "robertmccrary";
-            home = "/Users/robertmccrary";
-          };
-        }
-      ];
+        modules = [
+          ./modules/darwin.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.robertmccrary = import ./modules/home/default.nix;
+            home-manager.extraSpecialArgs = { };
+            users.users.robertmccrary = {
+              name = "robertmccrary";
+              home = "/Users/robertmccrary";
+            };
+          }
+        ];
+      };
     };
-  };
 }
