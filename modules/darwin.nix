@@ -11,9 +11,7 @@
   #homebrew
   homebrew = {
     enable = true;
-    casks = [
-      "ghostty"
-    ];
+    casks = [ ];
     onActivation = {
       autoUpdate = true;
       cleanup = "none";
