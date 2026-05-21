@@ -24,6 +24,12 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.robertmccrary = import ./modules/home.nix;
+          home-manager.extraSpecialArgs = { };
+          # tell darwin the user exists
+          users.users.robertmccrary = {
+            name = "robertmccrary";
+            home = "/Users/robertmccrary";
+          };
         }
       ];
     };
