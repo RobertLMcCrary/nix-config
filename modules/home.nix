@@ -136,6 +136,7 @@
         "kernel"
         "uptime"
         "shell"
+        "font"
         "memory"
         "cpu"
         "gpu"
