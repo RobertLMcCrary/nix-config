@@ -83,8 +83,13 @@
 
   programs.ghostty = {
     enable = true;
-    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+    #package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+    package = pkgs.ghostty-bin;
+
+    #shells
     enableZshIntegration = true;
+    enableNushellIntegration = true;
+
     settings = {
       font-family = "MesloLGS Nerd Font";
       font-size = 20;
