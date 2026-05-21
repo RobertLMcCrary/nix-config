@@ -88,7 +88,6 @@
 
     #shells
     enableZshIntegration = true;
-    enableNushellIntegration = true;
 
     settings = {
       font-family = "MesloLGS Nerd Font";
