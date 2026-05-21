@@ -14,8 +14,8 @@
 
     #js / ts
     nodejs
-    nodePackages.typescript
-    nodePackages.ts-node
+    typescript
+    ts-node
 
     #rust
     rustup
