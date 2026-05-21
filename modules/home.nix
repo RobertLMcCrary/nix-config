@@ -38,23 +38,24 @@
       logo = {
         source = "nixos";
       };
+      modules = [
+        "os"
+        "host"
+        "kernel"
+        "uptime"
+        "shell"
+        "memory"
+        "cpu"
+        "gpu"
+        "disk"
+        "swap"
+        "battery"
+        "localip"
+        "publicip"
+        "separator"
+        "colors"
+      ];
+
     };
-    modules = [
-      "os"
-      "host"
-      "kernel"
-      "uptime"
-      "shell"
-      "memory"
-      "cpu"
-      "gpu"
-      "disk"
-      "swap"
-      "battery"
-      "localip"
-      "publicip"
-      "separator"
-      "colors"
-    ];
   };
 }
