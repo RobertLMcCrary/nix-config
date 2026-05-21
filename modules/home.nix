@@ -23,11 +23,10 @@
       theme = "robbyrussell";
       plugins = [ "git" ];
     };
-  };
 
-  shellAliases = {
-    vim = "nvim";
-    lg = "lazygit";
+    shellAliases = {
+      vim = "nvim";
+      lg = "lazygit";
+    };
   };
-
 }
