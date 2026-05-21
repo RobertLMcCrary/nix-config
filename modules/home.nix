@@ -25,7 +25,7 @@
 
     #lua
     lua
-    lua-rocks
+    luarocks
 
     #general
     gcc
