@@ -10,6 +10,11 @@
     jq
   ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   programs.git = {
     enable = true;
     userName = "RobertLMcCrary";
@@ -29,6 +34,7 @@
       lg = "lazygit";
       ff = "fastfetch";
       l = "ls -l";
+      y = "yazi";
     };
   };
 
@@ -57,5 +63,9 @@
       ];
 
     };
+  };
+
+  programs.yazi = {
+    enable = true;
   };
 }
