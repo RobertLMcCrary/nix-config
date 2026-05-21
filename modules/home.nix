@@ -24,4 +24,10 @@
       plugins = [ "git" ];
     };
   };
+
+  shellAliases = {
+    vim = "nvim";
+    lg = "lazygit";
+  };
+
 }
