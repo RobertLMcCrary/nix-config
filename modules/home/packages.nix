@@ -16,5 +16,6 @@
     gcc
     pkg-config
     stripe-cli
+    postgresql
   ];
 }
