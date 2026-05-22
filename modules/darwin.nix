@@ -12,6 +12,9 @@
   #homebrew
   homebrew = {
     enable = true;
+    brews = [
+      "postgresql@18"
+    ];
     casks = [
       "font-meslo-lg-nerd-font"
       "claude-code"
@@ -20,20 +23,6 @@
       autoUpdate = true;
       cleanup = "none";
     };
-  };
-
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql;
-    dataDir = "/var/lib/postgresql/nudox";
-    ensureDatabases = [ "nudox_dev" ];
-    ensureUsers = [
-      {
-        name = "robertmccrary";
-        ensureDBOwnership = true;
-      }
-    ];
-
   };
 
   system.defaults = {
