@@ -22,6 +22,20 @@
     };
   };
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+    dataDir = "/var/lib/postgresql/nudox";
+    ensureDatabases = [ "nudox_dev" ];
+    ensureUsers = [
+      {
+        name = "robertmccrary";
+        ensureDBOwnership = true;
+      }
+    ];
+
+  };
+
   system.defaults = {
     dock = {
       autohide = true;
