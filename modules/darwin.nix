@@ -14,6 +14,7 @@
     enable = true;
     casks = [
       "font-meslo-lg-nerd-font"
+      "claude-code"
     ];
     onActivation = {
       autoUpdate = true;
