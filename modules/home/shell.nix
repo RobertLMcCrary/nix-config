@@ -14,6 +14,7 @@
       l = "ls -l";
       y = "yazi";
       tt = "ttyper";
+      cc = "claude"; # claude code
     };
   };
 
@@ -26,6 +27,7 @@
       l = "ls -l";
       y = "yazi";
       tt = "ttyper";
+      cc = "claude"; # claude code
     };
     extraConfig = ''
       $env.config = {

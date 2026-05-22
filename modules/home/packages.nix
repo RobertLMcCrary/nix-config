@@ -15,5 +15,6 @@
     luarocks
     gcc
     pkg-config
+    stripe-cli
   ];
 }
