@@ -74,5 +74,22 @@
     ];
   };
 
+  nix.distributedBuilds = true;
+  nix.buildMachines = [
+    {
+      hostName = "87.99.136.215";
+      system = "x86_64-linux";
+      sshUser = "root";
+      sshKey = "/etc/nix/builder_key";
+      maxJobs = 4;
+      supportedFeatures = [
+        "nixos-test"
+        "benchmark"
+        "big-parallel"
+        "kvm"
+      ];
+    }
+  ];
+
   system.stateVersion = 5;
 }
