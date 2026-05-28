@@ -14,4 +14,6 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
+
+  xdg.enable = true;
 }

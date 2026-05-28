@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    neovim
     go
     ripgrep
     fd
@@ -16,5 +17,6 @@
     gcc
     pkg-config
     stripe-cli
+    claude-code
   ];
 }

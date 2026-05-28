@@ -29,7 +29,7 @@
         modules = [
           ./modules/darwin.nix
           home-manager.darwinModules.home-manager
-          {
+          ({ pkgs, ... }: {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
@@ -37,9 +37,10 @@
             home-manager.extraSpecialArgs = { };
             users.users.robertmccrary = {
               name = "robertmccrary";
+              shell = pkgs.nushell;
               home = "/Users/robertmccrary";
             };
-          }
+          })
         ];
       };
     };

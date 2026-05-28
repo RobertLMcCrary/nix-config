@@ -1,30 +1,21 @@
 { pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     direnv
     git
     curl
     lazygit
+    postgresql_18
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.meslo-lg
   ];
 
   # primary user
   system.primaryUser = "robertmccrary";
-
-  #homebrew
-  homebrew = {
-    enable = true;
-    brews = [
-      "postgresql@18"
-    ];
-    casks = [
-      "font-meslo-lg-nerd-font"
-      "claude-code"
-    ];
-    onActivation = {
-      autoUpdate = true;
-      cleanup = "none";
-    };
-  };
 
   system.defaults = {
     dock = {
