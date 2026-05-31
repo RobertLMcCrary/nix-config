@@ -1,12 +1,15 @@
 { pkgs, config, ... }:
 let
-  nu-wrapped = pkgs.runCommand "nu-ghostty" {
-    nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
-  } ''
-    mkdir -p $out/bin
-    makeBinaryWrapper "${config.programs.nushell.package}/bin/nu" "$out/bin/nu" \
-      --set XDG_CONFIG_HOME "${config.xdg.configHome}"
-  '';
+  nu-wrapped =
+    pkgs.runCommand "nu-ghostty"
+      {
+        nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
+      }
+      ''
+        mkdir -p $out/bin
+        makeBinaryWrapper "${config.programs.nushell.package}/bin/nu" "$out/bin/nu" \
+          --set XDG_CONFIG_HOME "${config.xdg.configHome}"
+      '';
 in
 {
   programs.ghostty = {
@@ -19,7 +22,7 @@ in
     settings = {
       command = "${nu-wrapped}/bin/nu";
       font-family = "MesloLGS Nerd Font";
-      font-size = 20;
+      font-size = 17;
       font-thicken = true;
       font-thicken-strength = 0;
       adjust-cell-height = -2;
