@@ -1,16 +1,4 @@
 { pkgs, config, ... }:
-let
-  nu-wrapped =
-    pkgs.runCommand "nu-ghostty"
-      {
-        nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
-      }
-      ''
-        mkdir -p $out/bin
-        makeBinaryWrapper "${config.programs.nushell.package}/bin/nu" "$out/bin/nu" \
-          --set XDG_CONFIG_HOME "${config.xdg.configHome}"
-      '';
-in
 {
   programs.ghostty = {
     enable = true;
@@ -20,7 +8,6 @@ in
     enableZshIntegration = true;
 
     settings = {
-      command = "${nu-wrapped}/bin/nu";
       font-family = "MesloLGS Nerd Font";
       font-size = 17;
       font-thicken = true;

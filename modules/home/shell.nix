@@ -23,6 +23,7 @@
       y = "fs";
       tt = "ttyper";
       cc = "claude"; # claude code
+      please = "sudo";
     };
   };
 
