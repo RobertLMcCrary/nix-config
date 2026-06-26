@@ -189,6 +189,7 @@
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = false;
     enableNushellIntegration = true;
     settings = {
       add_newline = false;
