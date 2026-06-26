@@ -16,11 +16,11 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      nix-darwin,
-      home-manager,
+    { self
+    , nixpkgs
+    , nix-darwin
+    , home-manager
+    ,
     }:
     {
       darwinConfigurations."Roberts-MBP" = nix-darwin.lib.darwinSystem {
@@ -37,7 +37,7 @@
             home-manager.extraSpecialArgs = { };
             users.users.robertmccrary = {
               name = "robertmccrary";
-              shell = pkgs.nushell;
+              shell = pkgs.zsh;
               home = "/Users/robertmccrary";
             };
           })

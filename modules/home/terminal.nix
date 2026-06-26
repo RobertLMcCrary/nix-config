@@ -27,9 +27,11 @@ in
       font-thicken-strength = 0;
       adjust-cell-height = -2;
       theme = "0x96f";
+      #theme = "Github Light Default";
       cursor-style = "block";
       cursor-style-blink = false;
       cursor-color = "#ffffff";
+      #cursor-color = "#000000";
       mouse-hide-while-typing = true;
       term = "xterm-256color";
       shell-integration-features = "no-cursor";
