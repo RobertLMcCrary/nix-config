@@ -2,6 +2,11 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  environment.systemPath = [
+    "/opt/homebrew/bin"
+    "/usr/local/bin"
+  ];
+
   environment.systemPackages = with pkgs; [
     direnv
     git
@@ -9,6 +14,14 @@
     lazygit
     postgresql_18
   ];
+
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+    };
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.meslo-lg
