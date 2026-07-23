@@ -17,6 +17,5 @@
     gcc
     pkg-config
     stripe-cli
-    claude-code
   ];
 }
