@@ -107,6 +107,13 @@
       "x86_64-linux"
     ];
     config = {
+      # `systems` above only advertises x86_64-linux capability in the
+      # machines-file line — it doesn't by itself register QEMU user-mode
+      # emulation inside the guest. Without this, the VM only ever reports
+      # itself as aarch64-linux at build time and rejects x86_64-linux
+      # derivations with a platform mismatch (confirmed the hard way).
+      boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+
       virtualisation = {
         cores = lib.mkForce 4;
         memorySize = lib.mkForce 8192; # MB
