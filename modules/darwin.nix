@@ -95,5 +95,25 @@
     }
   ];
 
+  # Local Linux builder (Apple Virtualization framework, entirely on this
+  # machine) — for building/testing NixOS configs (e.g. MachineConfigurations'
+  # nix/checks.nix VM tests) without routing anything through the real prod
+  # build machine above. Supports both native aarch64-linux and emulated
+  # x86_64-linux (MachineConfigurations' hosts are x86_64-linux).
+  nix.linux-builder = {
+    enable = true;
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    config = {
+      virtualisation = {
+        cores = 4;
+        memorySize = 8192; # MB
+        diskSize = 51200; # MB — NixOS VM tests build a full system closure
+      };
+    };
+  };
+
   system.stateVersion = 5;
 }
