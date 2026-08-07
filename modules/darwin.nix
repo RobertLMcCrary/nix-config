@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -108,9 +108,12 @@
     ];
     config = {
       virtualisation = {
-        cores = 4;
-        memorySize = 8192; # MB
-        diskSize = 51200; # MB — NixOS VM tests build a full system closure
+        cores = lib.mkForce 4;
+        memorySize = lib.mkForce 8192; # MB
+        # NixOS VM tests build a full system closure (Postgres, Zitadel,
+        # Grafana, VictoriaMetrics, Traefik, ...) — the module's own 20GB
+        # default is tight for that, so override rather than just add.
+        diskSize = lib.mkForce 51200; # MB
       };
     };
   };
