@@ -20,6 +20,11 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
+      # No brews/casks/taps are declared here, so Homebrew apps are
+      # intentionally left unmanaged by Nix. "uninstall"/"zap" would remove
+      # every Homebrew package on the next activation since none are known
+      # to this config — keep this "none" unless that list gets populated.
+      cleanup = "none";
     };
   };
 
@@ -105,6 +110,18 @@
     systems = [
       "aarch64-linux"
       "x86_64-linux"
+    ];
+    # Default omits "nixos-test" — fine for ordinary package builds, but
+    # NixOS VM tests (pkgs.testers.runNixOSTest, e.g. MachineConfigurations'
+    # nix/checks.nix test.<host>) require it explicitly, or the final
+    # vm-test-run-*.drv gets rejected with "missing system features" even
+    # though everything leading up to it (including the KVM-requiring test
+    # driver itself) already built fine.
+    supportedFeatures = [
+      "kvm"
+      "benchmark"
+      "big-parallel"
+      "nixos-test"
     ];
     config = {
       # `systems` above only advertises x86_64-linux capability in the
