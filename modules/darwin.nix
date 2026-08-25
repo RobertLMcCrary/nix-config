@@ -132,8 +132,8 @@
       boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
 
       virtualisation = {
-        cores = lib.mkForce 4;
-        memorySize = lib.mkForce 8192; # MB
+        cores = lib.mkForce 2;
+        memorySize = lib.mkForce 3072; # MB
         # NixOS VM tests build a full system closure (Postgres, Zitadel,
         # Grafana, VictoriaMetrics, Traefik, ...) — the module's own 20GB
         # default is tight for that, so override rather than just add.
