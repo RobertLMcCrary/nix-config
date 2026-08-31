@@ -7,29 +7,57 @@
     "/usr/local/bin"
   ];
 
-  environment.systemPackages = with pkgs; [
-    direnv
-    git
-    curl
-    lazygit
-    postgresql_18
-  ];
-
+  # Most CLI dev tools (direnv, git, LSPs, ...) live in modules/home/*.nix
+  # via home-manager, reproducible on NixOS/Linux too. A few tools are kept
+  # on Homebrew here by choice (faster-moving CLIs, or things that don't
+  # need to exist on the NixOS laptop) — modules/home/packages.nix installs
+  # the Nix equivalents of these on Linux only, so they still exist there.
   homebrew = {
     enable = true;
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      # No brews/casks/taps are declared here, so Homebrew apps are
-      # intentionally left unmanaged by Nix. "uninstall"/"zap" would remove
-      # every Homebrew package on the next activation since none are known
-      # to this config — keep this "none" unless that list gets populated.
+      # Keep "none": cool-retro-term, pidgin, gotop, htop, iftop, helix,
+      # gplugin, ninja, etc. are intentionally left as manually-managed
+      # Homebrew installs, not declared below. "zap"/"uninstall" would
+      # remove all of them on the next activation since this config
+      # doesn't know about them.
       cleanup = "none";
     };
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.meslo-lg
+  homebrew.taps = [
+    "getsentry/xcodebuildmcp"
+    "sourcegraph/src-cli"
+    "supabase/tap"
+  ];
+
+  homebrew.brews = [
+    "dbmate"
+    "elixir"
+    "ffmpeg"
+    "flyctl"
+    "gemini-cli"
+    "mkcert"
+    "neovim"
+    "openjdk@21"
+    "postgresql@18"
+    "tokei"
+    "typst"
+    "whisper-cpp"
+    "yt-dlp"
+    "getsentry/xcodebuildmcp/xcodebuildmcp" # no Nix package — Mac-only
+    "sourcegraph/src-cli/src-cli"
+    "supabase/tap/supabase"
+  ];
+
+  homebrew.casks = [
+    "claude-code@latest"
+    "codex"
+    "dotnet-sdk"
+    "font-meslo-lg-nerd-font"
+    "gcloud-cli"
+    "ghostty"
   ];
 
   # primary user

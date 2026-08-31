@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./packages.nix
@@ -8,7 +8,7 @@
   ];
 
   home.username = "robertmccrary";
-  home.homeDirectory = "/Users/robertmccrary";
+  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/robertmccrary" else "/home/robertmccrary";
   home.stateVersion = "24.11";
   home.sessionVariables = {
     EDITOR = "nvim";

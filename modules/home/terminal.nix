@@ -1,9 +1,16 @@
 { pkgs, config, ... }:
 {
+  # nix-darwin registers fonts.packages system-wide for Font Book/apps; on
+  # non-NixOS Linux there's no equivalent, so home-manager has to manage
+  # fontconfig itself for the nerd font (in packages.nix) to be found.
+  fonts.fontconfig.enable = pkgs.stdenv.isLinux;
+
   programs.ghostty = {
     enable = true;
-    #package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
-    package = pkgs.ghostty-bin;
+    # On Darwin the app comes from the Homebrew cask (modules/darwin.nix);
+    # null tells home-manager to just manage the config file, not install
+    # the package. On Linux the regular nixpkgs build works fine.
+    package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
 
     enableZshIntegration = true;
 

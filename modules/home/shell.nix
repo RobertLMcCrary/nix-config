@@ -2,7 +2,10 @@
 {
   home.shell.enableNushellIntegration = true;
 
-  programs.lazygit.enableNushellIntegration = true;
+  programs.lazygit = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
 
   programs.zsh = {
     enable = true;
