@@ -13,6 +13,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +26,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      zen-browser,
     }:
     let
       username = "robertmccrary";
@@ -89,6 +95,7 @@
       # see hosts/nixos/README.md.
       nixosConfigurations.${nixosHostName} = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # adjust if the laptop is aarch64-linux
+        specialArgs = { inherit zen-browser; };
         modules = [
           ./hosts/nixos/hardware-configuration.nix
           ./modules/nixos.nix

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, zen-browser, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -53,4 +53,9 @@
   # Set once at install time to the NixOS release you installed with, then
   # never change it — see the nixos-generate-config output / release notes.
   system.stateVersion = "24.11";
+
+  # zen
+  environment.systemPackages = [
+    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 }
