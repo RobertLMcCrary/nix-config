@@ -28,7 +28,6 @@
       # Rename to match `hostnamectl hostname` on the NixOS laptop, and
       # update networking.hostName in modules/nixos.nix to match.
       nixosHostName = "nixos-laptop";
-      hardwareConfigPath = ./hosts/nixos/hardware-configuration.nix;
 
       # Systems to build a standalone (non-NixOS) home-manager config for —
       # e.g. Ubuntu. Add "aarch64-linux" is already covered for ARM boxes.
@@ -74,14 +73,14 @@
           };
         }) standaloneSystems
       );
-    }
-    // nixpkgs.lib.optionalAttrs (builtins.pathExists hardwareConfigPath) {
-      # Only appears once hosts/nixos/hardware-configuration.nix has been
-      # generated on the actual laptop — see hosts/nixos/README.md.
+
+      # hosts/nixos/hardware-configuration.nix must exist (generate it on
+      # the laptop with `nixos-generate-config --show-hardware-config`) —
+      # see hosts/nixos/README.md.
       nixosConfigurations.${nixosHostName} = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # adjust if the laptop is aarch64-linux
         modules = [
-          hardwareConfigPath
+          ./hosts/nixos/hardware-configuration.nix
           ./modules/nixos.nix
           home-manager.nixosModules.home-manager
           {
