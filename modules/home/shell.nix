@@ -30,6 +30,15 @@
     };
   };
 
+  # Nushell picks its config dir from XDG_CONFIG_HOME, which home-manager
+  # exports from hm-session-vars.sh -- a POSIX script nushell never sources.
+  # As a login shell nushell therefore starts with it unset and falls back to
+  # the macOS-native path, missing the config home-manager wrote under
+  # ~/.config. Point that native path at the same directory so both lookups
+  # resolve identically, set or unset.
+  home.file."Library/Application Support/nushell".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/nushell";
+
   programs.nushell = {
     enable = true;
 
