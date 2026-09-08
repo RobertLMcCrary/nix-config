@@ -53,7 +53,6 @@
       whisper-cpp
       yt-dlp
       dotnet-sdk
-      google-cloud-sdk
       claude-code
       codex
       supabase-cli

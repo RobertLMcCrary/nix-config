@@ -56,7 +56,6 @@
     "codex"
     "dotnet-sdk"
     "font-meslo-lg-nerd-font"
-    "gcloud-cli"
     "ghostty"
   ];
 

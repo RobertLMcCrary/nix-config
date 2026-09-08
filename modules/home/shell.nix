@@ -9,10 +9,6 @@
 
   programs.zsh = {
     enable = true;
-    initExtra = ''
-      source "$HOME/google-cloud-sdk/path.zsh.inc"
-      source "$HOME/google-cloud-sdk/completion.zsh.inc"
-    '';
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
