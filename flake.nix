@@ -51,9 +51,19 @@
             home-manager.extraSpecialArgs = { };
             users.users.${username} = {
               name = username;
+              uid = 501;
               shell = pkgs.nushell;
               home = "/Users/${username}";
             };
+
+            # nix-darwin only applies user settings -- the login shell
+            # included -- to accounts named here. Without this the block
+            # above is silently ignored for a pre-existing account, which
+            # is why the shell stayed /bin/zsh.
+            users.knownUsers = [ username ];
+
+            # Let nushell be picked as a login shell (chsh, some terminals).
+            environment.shells = [ pkgs.nushell ];
           })
         ];
       };
