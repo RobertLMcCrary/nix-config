@@ -45,9 +45,10 @@
       "wheel"
       "networkmanager"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
   programs.zsh.enable = true;
+  environment.shells = [ pkgs.nushell ];
 
   # Set once at install time to the NixOS release you installed with, then
   # never change it — see the nixos-generate-config output / release notes.

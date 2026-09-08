@@ -51,7 +51,7 @@
             home-manager.extraSpecialArgs = { };
             users.users.${username} = {
               name = username;
-              shell = pkgs.zsh;
+              shell = pkgs.nushell;
               home = "/Users/${username}";
             };
           })
