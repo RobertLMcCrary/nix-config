@@ -49,6 +49,7 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
+  services.logind.settings.Login.IdleAction = "ignore";
 
   security.rtkit.enable = true;
   services.pipewire = {
