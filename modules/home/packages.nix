@@ -24,6 +24,7 @@
       cargo-deny
       bacon
       taplo # TOML LSP/formatter for Cargo.toml
+      gnumake
       nixd
       nixfmt-rfc-style
       lua
@@ -57,11 +58,8 @@
       # rust-analyzer loses build-script/proc-macro data. Darwin uses Xcode's cc.
       gcc
       neovim
-<<<<<<< HEAD
       nodejs
-=======
       tree-sitter
->>>>>>> bdd1932 (added tree-sitter)
       postgresql_18
       nerd-fonts.meslo-lg
 

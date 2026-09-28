@@ -1,4 +1,15 @@
-.PHONY: switch update nixos-switch nixos-update home-switch home-update
+.DEFAULT_GOAL := help
+
+.PHONY: help darwin-switch darwin-update nixos-switch nixos-update home-switch home-update
+
+help:
+	@printf '%s\n' \
+	  'make darwin-switch  - activate the macOS configuration' \
+	  'make darwin-update  - update inputs and activate macOS' \
+	  'make nixos-switch   - activate the NixOS laptop configuration' \
+	  'make nixos-update   - update inputs and activate NixOS' \
+	  'make home-switch    - activate the standalone Linux Home Manager configuration' \
+	  'make home-update    - update inputs and activate standalone Home Manager'
 
 # macOS (nix-darwin)
 darwin-switch:
