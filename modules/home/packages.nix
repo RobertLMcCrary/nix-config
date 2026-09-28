@@ -25,6 +25,7 @@
       bacon
       taplo # TOML LSP/formatter for Cargo.toml
       gnumake
+      zellij
       nixd
       nixfmt-rfc-style
       lua
