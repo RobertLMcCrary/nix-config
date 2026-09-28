@@ -52,6 +52,16 @@
     };
   };
 
+  # A persistent remote session for Codex, Claude Code, builds, and logs.
+  # `agents` (defined in shell.nix) creates it on first use and reattaches
+  # thereafter, so an SSH disconnect does not stop the work inside.
+  programs.tmux = {
+    enable = true;
+    mouse = true;
+    escapeTime = 0;
+    historyLimit = 100000;
+  };
+
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
