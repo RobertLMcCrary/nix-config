@@ -57,7 +57,11 @@
       # rust-analyzer loses build-script/proc-macro data. Darwin uses Xcode's cc.
       gcc
       neovim
+<<<<<<< HEAD
       nodejs
+=======
+      tree-sitter
+>>>>>>> bdd1932 (added tree-sitter)
       postgresql_18
       nerd-fonts.meslo-lg
 
