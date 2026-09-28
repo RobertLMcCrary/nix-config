@@ -1,4 +1,9 @@
-{ pkgs, zen-browser, ... }:
+{
+  config,
+  pkgs,
+  zen-browser,
+  ...
+}:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -17,6 +22,22 @@
   # sync with the `nixosHostName` value in flake.nix.
   networking.hostName = "nixos-laptop";
   networking.networkmanager.enable = true;
+
+  # Private remote development from the Mac. Tailscale provides the private
+  # network; OpenSSH is deliberately exposed only on its interface, never to
+  # the public LAN/Internet firewall zone.
+  services.tailscale.enable = true;
+  services.openssh = {
+    enable = true;
+    openFirewall = false;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ "robertmccrary" ];
+    };
+  };
+  networking.firewall.interfaces.${config.services.tailscale.interfaceName}.allowedTCPPorts = [ 22 ];
 
   # Modern UEFI default. Switch to boot.loader.grub if the laptop is legacy BIOS.
   boot.loader.systemd-boot.enable = true;

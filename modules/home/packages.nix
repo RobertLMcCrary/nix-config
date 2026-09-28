@@ -76,6 +76,7 @@
       yt-dlp
       dotnet-sdk
       codex
+      claude-code
       supabase-cli
       src-cli
     ];
