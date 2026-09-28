@@ -48,6 +48,7 @@
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  programs.dconf.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
