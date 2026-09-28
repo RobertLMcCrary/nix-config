@@ -15,6 +15,9 @@
     enableZshIntegration = true;
 
     settings = {
+      # Do not let a stale desktop-session $SHELL (for example, zsh) override
+      # the login shell configured by NixOS/nix-darwin.
+      command = "nu";
       font-family = "MesloLGS Nerd Font";
       font-size = 28;
       font-thicken = true;
