@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   home.shell.enableNushellIntegration = true;
 
@@ -46,6 +51,7 @@
 
     extraEnv = ''
       $env.PATH = [
+        ${lib.optionalString pkgs.stdenv.isLinux ''"/run/wrappers/bin"''}
         "/opt/homebrew/bin"
         "/opt/homebrew/sbin"
         "/run/current-system/sw/bin"
