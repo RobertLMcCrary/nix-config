@@ -23,6 +23,7 @@
     "org/gnome/desktop/peripherals/keyboard" = {
       delay = lib.gvariant.mkUint32 150;
       repeat-interval = lib.gvariant.mkUint32 15;
+      xkb-options = [ "caps:escape" ];
     };
 
     # Keep the Toughbook reachable over Tailscale while its display is idle.
