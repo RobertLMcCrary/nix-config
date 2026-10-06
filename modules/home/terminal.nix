@@ -16,8 +16,7 @@
 
     settings = {
       font-family = "MesloLGS Nerd Font";
-      #font-size = 17;
-      font-size = 22;
+      font-size = 27;
       font-thicken = true;
       font-thicken-strength = 0;
       adjust-cell-height = -2;
