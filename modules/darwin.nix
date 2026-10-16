@@ -40,6 +40,7 @@
     "gemini-cli"
     "mkcert"
     "neovim"
+    "node"
     "openjdk@21"
     "postgresql@18"
     "tokei"

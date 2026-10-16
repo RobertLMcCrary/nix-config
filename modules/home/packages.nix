@@ -8,7 +8,6 @@
       fd
       jq
       ttyper
-      nodejs
       typescript
       rustup
       nixd
@@ -31,11 +30,12 @@
       jdt-language-server # provides `jdtls`
       sqls
     ]
-    # neovim, postgresql, and the nerd font come from Homebrew on Darwin
+    # neovim, node, postgresql, and the nerd font come from Homebrew on Darwin
     # (see modules/darwin.nix homebrew.brews/casks) — Nix installs them
     # here only on NixOS/Linux, where there's no Homebrew.
     ++ lib.optionals stdenv.isLinux [
       neovim
+      nodejs
       postgresql_18
       nerd-fonts.meslo-lg
 

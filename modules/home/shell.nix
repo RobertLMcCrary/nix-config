@@ -52,6 +52,7 @@
         "/etc/profiles/per-user/${config.home.username}/bin"
         "/Users/${config.home.username}/.nix-profile/bin"
         "/nix/var/nix/profiles/default/bin"
+        "/Users/${config.home.username}/.local/bin"
         "/usr/local/bin"
         "/usr/bin"
         "/bin"
