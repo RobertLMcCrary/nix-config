@@ -7,6 +7,21 @@
     "/usr/local/bin"
   ];
 
+  # GUI apps (launched from Finder/Dock) don't inherit the shell PATH — and
+  # nushell is the login shell, which most apps' "ask the login shell" fallback
+  # can't parse — so they'd otherwise see only /usr/bin:/bin:/usr/sbin:/sbin.
+  # Put Homebrew's node/npm and ~/.local/bin on launchd's user PATH.
+  launchd.user.envVariables.PATH = lib.concatStringsSep ":" [
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+    "/Users/robertmccrary/.local/bin"
+    "/usr/local/bin"
+    "/usr/bin"
+    "/bin"
+    "/usr/sbin"
+    "/sbin"
+  ];
+
   # Most CLI dev tools (direnv, git, LSPs, ...) live in modules/home/*.nix
   # via home-manager, reproducible on NixOS/Linux too. A few tools are kept
   # on Homebrew here by choice (faster-moving CLIs, or things that don't
