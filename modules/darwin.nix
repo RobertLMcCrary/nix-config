@@ -51,7 +51,6 @@
   homebrew.brews = [
     "dbmate"
     "elixir"
-    "emacs"
     "ffmpeg"
     "flyctl"
     "gemini-cli"
@@ -73,6 +72,7 @@
     "claude-code@latest"
     "codex"
     "dotnet-sdk"
+    "emacs-app" # GUI + native compilation; doom wants this over the formula
     "font-meslo-lg-nerd-font"
     "font-symbols-only-nerd-font" # doom nerd-icons
     "ghostty"
