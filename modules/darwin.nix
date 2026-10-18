@@ -15,6 +15,7 @@
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
     "/Users/robertmccrary/.local/bin"
+    "/Users/robertmccrary/.config/emacs/bin" # doom
     "/usr/local/bin"
     "/usr/bin"
     "/bin"
@@ -50,6 +51,7 @@
   homebrew.brews = [
     "dbmate"
     "elixir"
+    "emacs"
     "ffmpeg"
     "flyctl"
     "gemini-cli"
@@ -72,6 +74,7 @@
     "codex"
     "dotnet-sdk"
     "font-meslo-lg-nerd-font"
+    "font-symbols-only-nerd-font" # doom nerd-icons
     "ghostty"
   ];
 

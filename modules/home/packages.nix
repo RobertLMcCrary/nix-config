@@ -19,6 +19,10 @@
       stripe-cli
       curl
 
+      # doom emacs (doom doctor): shell linting + markdown preview
+      shellcheck
+      pandoc
+
       # LSPs used by nvim (moved off Homebrew — see modules/darwin.nix homebrew.cleanup note)
       gopls
       lua-language-server

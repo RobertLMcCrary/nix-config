@@ -53,6 +53,7 @@
         "/Users/${config.home.username}/.nix-profile/bin"
         "/nix/var/nix/profiles/default/bin"
         "/Users/${config.home.username}/.local/bin"
+        "/Users/${config.home.username}/.config/emacs/bin" # doom
         "/usr/local/bin"
         "/usr/bin"
         "/bin"
