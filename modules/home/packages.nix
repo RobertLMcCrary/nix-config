@@ -4,6 +4,9 @@
     with pkgs;
     [
       go
+      erlang
+      gleam
+      rebar3
       ripgrep
       fd
       jq
