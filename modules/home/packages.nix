@@ -13,11 +13,21 @@
       ttyper
       typescript
       rustup
+      # rustup's own bin/rust-analyzer is a proxy that recurses forever when the
+      # active toolchain lacks the component (project pins 1.97.1), so ship the
+      # real binary and let it win the bin/ collision.
+      (lib.hiPrio rust-analyzer)
+      # cargo/rustc/clippy/rustfmt come from rustup toolchains (projects pin
+      # their own via rustup overrides); nixpkgs' rustc lags those pins.
+      cargo-nextest
+      cargo-edit
+      cargo-deny
+      bacon
+      taplo # TOML LSP/formatter for Cargo.toml
       nixd
       nixfmt-rfc-style
       lua
       luarocks
-      gcc
       pkg-config
       stripe-cli
       curl
@@ -41,6 +51,11 @@
     # (see modules/darwin.nix homebrew.brews/casks) — Nix installs them
     # here only on NixOS/Linux, where there's no Homebrew.
     ++ lib.optionals stdenv.isLinux [
+      # Not on Darwin: nix's gcc/ld wrappers land first on PATH as `cc`/`ld`,
+      # and cargo links through `cc` — GNU gcc has no macOS SDK, so every Rust
+      # build script fails with "library not found for -liconv" and
+      # rust-analyzer loses build-script/proc-macro data. Darwin uses Xcode's cc.
+      gcc
       neovim
       nodejs
       postgresql_18
@@ -49,7 +64,6 @@
       # Nix equivalents of the Homebrew-on-Mac dev CLIs above, so they
       # still exist on NixOS/Ubuntu. No Nix package for xcodebuildmcp, so
       # it's Mac-only.
-      dbmate
       beamPackages.elixir
       ffmpeg
       flyctl
