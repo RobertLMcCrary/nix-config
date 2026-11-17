@@ -52,44 +52,6 @@
     };
   };
 
-  # A persistent remote session for Codex, Claude Code, builds, and logs.
-  # `agents` (defined in shell.nix) creates it on first use and reattaches
-  # thereafter, so an SSH disconnect does not stop the work inside.
-  programs.tmux = {
-    enable = true;
-    mouse = true;
-    escapeTime = 0;
-    historyLimit = 100000;
-
-    # Ctrl-a is easier to reach than the default Ctrl-b (and matches screen).
-    prefix = "C-a";
-    # vi-style copy mode, plus hjkl/HJKL for pane navigation and resizing.
-    keyMode = "vi";
-    customPaneNavigationAndResize = true;
-    # Windows/panes numbered from 1, matching the number row on the keyboard.
-    baseIndex = 1;
-
-    extraConfig = ''
-      # Split panes with | and - instead of the unmnemonic % and ", and
-      # keep new panes/windows in the current pane's working directory.
-      bind | split-window -h -c "#{pane_current_path}"
-      bind - split-window -v -c "#{pane_current_path}"
-      bind c new-window -c "#{pane_current_path}"
-
-      # Reload the config in place with prefix+r instead of restarting tmux.
-      bind r source-file ~/.config/tmux/tmux.conf \; display-message "tmux config reloaded"
-
-      # Keep window numbers contiguous after one is closed.
-      set -g renumber-windows on
-
-      # A status bar that actually shows the session name and clock.
-      set -g status-style "bg=#1a1b26,fg=#c0caf5"
-      set -g status-left "#[bold] #S "
-      set -g status-right "%H:%M  %d-%b-%y"
-      set -g window-status-current-style "bold,bg=#7aa2f7,fg=#1a1b26"
-    '';
-  };
-
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;

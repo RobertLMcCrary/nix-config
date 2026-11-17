@@ -31,7 +31,6 @@
       y = "fs";
       tt = "ttyper";
       cc = "claude"; # claude code
-      agents = "tmux new-session -A -s agents";
       zagents = "zellij attach --create zagents";
       please = "sudo";
     };
@@ -82,7 +81,6 @@
       y = "fs";
       tt = "ttyper";
       cc = "claude";
-      agents = "tmux new-session -A -s agents";
       zagents = "zellij attach --create zagents";
       please = "sudo";
     };
