@@ -2,7 +2,9 @@
 {
   programs.git = {
     enable = true;
-    userName = "RobertLMcCrary";
-    userEmail = "rlmccrary1210@gmail.com";
+    settings.user = {
+      name = "RobertLMcCrary";
+      email = "rlmccrary1210@gmail.com";
+    };
   };
 }
