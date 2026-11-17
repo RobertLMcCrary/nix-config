@@ -69,6 +69,8 @@
       "networkmanager"
     ];
     shell = pkgs.nushell;
+    # Keep the Rex user service (and its sessions) running while logged out.
+    linger = true;
   };
   programs.zsh.enable = true;
   environment.shells = [ pkgs.nushell ];

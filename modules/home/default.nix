@@ -5,6 +5,7 @@
     ./shell.nix
     ./dev.nix
     ./terminal.nix
+    ./rex.nix
   ];
 
   home.username = "robertmccrary";

@@ -14,6 +14,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Prebuilt Rex; preview channel until a stable release exists.
+    rex = {
+      url = "https://pkgs.superlogical.com/rex/nix/preview.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +33,7 @@
       nix-darwin,
       home-manager,
       zen-browser,
+      rex,
     }:
     let
       username = "robertmccrary";
@@ -53,6 +60,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.sharedModules = [ rex.homeManagerModules.default ];
             home-manager.users.${username} = import ./modules/home/default.nix;
             home-manager.extraSpecialArgs = { };
             users.users.${username} = {
@@ -85,7 +93,10 @@
               inherit system;
               config.allowUnfree = true;
             };
-            modules = [ ./modules/home/default.nix ];
+            modules = [
+              rex.homeManagerModules.default
+              ./modules/home/default.nix
+            ];
           };
         }) standaloneSystems
       );
@@ -104,6 +115,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.sharedModules = [ rex.homeManagerModules.default ];
             home-manager.users.${username} = import ./modules/home/default.nix;
           }
         ];
