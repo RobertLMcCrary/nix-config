@@ -49,7 +49,23 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
-  services.logind.settings.Login.IdleAction = "ignore";
+  # Always-on server for Rex/SSH over Tailscale: never sleep, whether the lid
+  # closes, the machine idles, or it sits at the login screen after a reboot.
+  services.logind.settings.Login = {
+    IdleAction = "ignore";
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
+  services.displayManager.gdm.autoSuspend = false;
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = "no";
+    AllowHibernation = "no";
+    AllowHybridSleep = "no";
+    AllowSuspendThenHibernate = "no";
+  };
+  # Wi-Fi power saving adds latency and can drop idle remote sessions.
+  networking.networkmanager.wifi.powersave = false;
 
   security.rtkit.enable = true;
   services.pipewire = {
